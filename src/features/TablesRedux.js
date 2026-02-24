@@ -1,3 +1,5 @@
+import { API_URL } from '../config';
+
 const initialState = {
   tables: [],
   loading: false,
@@ -48,7 +50,7 @@ export const getLoading = state => state.tables.loading;
 export const fetchTables = () => dispatch => {
   dispatch({ type: 'tables/setLoading', payload: true });
 
-  fetch('http://localhost:3131/api/tables')
+  fetch(`${API_URL}/tables`)
     .then(res => res.json())
     .then(data => {
       dispatch({ type: 'tables/setTables', payload: data });
@@ -59,7 +61,7 @@ export const fetchTables = () => dispatch => {
 // UPDATE TABLE
 export const updateTableRequest = updatedTable => dispatch => {
 
-  fetch(`http://localhost:3131/api/tables/${updatedTable.id}`, {
+  fetch(`${API_URL}/tables/${updatedTable.id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(updatedTable),
