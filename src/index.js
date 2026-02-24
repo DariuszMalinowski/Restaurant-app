@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import tablesReducer from './features/TablesRedux';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 
